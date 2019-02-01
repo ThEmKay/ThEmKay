@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Multi-page template</title>
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<script>
+
+		$(function() {
+			$("#panel").panel();
+		});
+	
+</script>
+</head>
+
+<body>
+
+<!-- Start of first page: #one -->
+<div data-role="page" id="one">
+
+	<div data-role="header">
+		<h1>EXCEL Tutorial</h1>
+	</div><!-- /header -->
+
+	<div role="main" class="ui-content">
+		<h1>Lektion 1</h1>
+
+		<p>This is a multi-page boilerplate template that you can copy to build your first jQuery Mobile page. This template contains multiple "page" containers inside, unlike a single page template that has just one page within it.</p>
+		<p>Just view the source and copy the code to get started. All the CSS and JS is linked to the jQuery CDN versions so this is super easy to set up. Remember to include a meta viewport tag in the head to set the zoom level.</p>
+		<p>You link to internal pages by referring to the <code>id</code> of the page you want to show. For example, to <a href="#two">link</a> to the page with an <code>id</code> of "two", my link would have a <code>href="#two"</code> in the code.</p>
+
+		<h3>Show internal pages:</h3>
+	
+    <a href="#panel">panel</a>
+  	
+    
+		<p><a href="#popup" class="ui-btn ui-shadow ui-corner-all" data-rel="dialog" data-transition="pop">Show page "popup" (as a dialog)</a></p>
+	</div><!-- /content -->
+
+
+	<div data-role="footer" data-theme="a">
+		<a href="#two" class="ui-btn ui-shadow ui-corner-all">Show page "two"</a>
+    
+    
+	</div><!-- /footer -->
+</div><!-- /page one -->
+
+
+
+
+<div data-role="panel" id="panel">
+asdasd<!-- panel content goes here -->
+</div><!-- /panel -->
+
+</body>
+</html>
