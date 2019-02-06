@@ -21,7 +21,7 @@
     
     function nextpage(e){
         $("#desc").load($(e).attr("data-next")+".html");
-        $("#screen").src("./excel-screens/"+$(e).attr("data-next")+".png");    
+        $("#screen").attr("src", "./excel-screens/"+$(e).attr("data-next")+".png");    
     }
     
     
