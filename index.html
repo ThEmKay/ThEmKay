@@ -21,7 +21,7 @@
     
     function nextpage(e){
         $("#desc").load($(e).attr("data-next")+".html");
-        $("#screen").load("./excel-screens/"+$(e).attr("data-next")+".png");    
+        $("#screen").src("./excel-screens/"+$(e).attr("data-next")+".png");    
     }
     
     
@@ -35,7 +35,7 @@
 <!-- Start of first page: #one -->
 <div data-role="page" id="one">
 
-	<div data-role="header">
+	<div data-role="header" data-theme="b">
 		<h1>EXCEL Tutorial</h1>
     <a href="#panel" data-icon="bullets" class="ui-btn-left">Inhalt</a>
 	</div><!-- /header -->
