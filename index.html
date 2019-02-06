@@ -11,8 +11,7 @@
 
 		$(function() {
 			$("#panel").panel();
-        alert($( window ).width());
-      
+
       $("#screen").css({width: $( window ).width()/2});
       $( window ).resize(function() {
         $("#screen").css({width: $( window ).width()/2});
@@ -21,11 +20,17 @@
       $("#next").bind("click", function(){
         alert($(this).attr("data-next"));
         
-        $("#desc").load("./lektion1-0.html");
+        $("#desc").load($(this).attr("data-next")+"/.html");
+        $("#screen").load("./excel-screens/"+$(this).attr("data-next")+"/.png");
         
       })
       
     });
+    
+    function nextpage(e){
+        $("#desc").load($(e).attr("data-next")+"/.html");
+        $("#screen").load("./excel-screens/"+$(e).attr("data-next")+"/.png");    
+    }
     
     
     
@@ -48,27 +53,25 @@
     <div class="ui-grid-a">
       <div class="ui-block-a" id="desc">
         BESCHREIBUNG
+        <p><a class="ui-btn ui-mini ui-btn-inline" href="#" data-next="1-2" onclick="nextpage(this)">NEXT</a></p>
       </div>
       <div class="ui-block-b">
-        <img id="screen" src="./excel-screens/L1-1.png" style="height:100%" />  
+        <img id="screen" src="./excel-screens/1-1.png" style="height:100%" />  
       </div>
     </div>
 	</div><!-- /content -->
 
 
-<div data-role="panel" id="panel">
-  <ul data-role="listview">
-      <li><a href="#">Acura</a></li>
-      <li><a href="#">Audi</a></li>
-      <li><a href="#">BMW</a></li>
-      <li><a href="#">Cadillac</a></li>
-      <li><a href="#">Ferrari</a></li>
-  </ul>
-</div>
+  <div data-role="panel" id="panel">
+    <ul data-role="listview">
+        <li><a href="#">Acura</a></li>
+        <li><a href="#">Audi</a></li>
+        <li><a href="#">BMW</a></li>
+        <li><a href="#">Cadillac</a></li>
+        <li><a href="#">Ferrari</a></li>
+    </ul>
+  </div>
 
-	<div data-role="footer" data-theme="a">
-		<a id="next" data-next="test" class="ui-btn ui-shadow ui-corner-all">Show page "two"</a>
-	</div>
 </div>
 <!-- /panel -->
 
