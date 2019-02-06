@@ -16,20 +16,12 @@
       $( window ).resize(function() {
         $("#screen").css({width: $( window ).width()/2});
       });
-
-      $("#next").bind("click", function(){
-        alert($(this).attr("data-next"));
-        
-        $("#desc").load($(this).attr("data-next")+"/.html");
-        $("#screen").load("./excel-screens/"+$(this).attr("data-next")+"/.png");
-        
-      })
       
     });
     
     function nextpage(e){
-        $("#desc").load($(e).attr("data-next")+"/.html");
-        $("#screen").load("./excel-screens/"+$(e).attr("data-next")+"/.png");    
+        $("#desc").load($(e).attr("data-next")+".html");
+        $("#screen").load("./excel-screens/"+$(e).attr("data-next")+".png");    
     }
     
     
