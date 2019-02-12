@@ -17,14 +17,33 @@
         $("#screen").css({width: $( window ).width()/2});
       });
       
+      
+      
+      
+      
+      
     });
     
     function nextpage(e){
-        $("#desc").load($(e).attr("data-next")+".html");
-        $("#screen").attr("src", "./excel-screens/"+$(e).attr("data-next")+".png");    
+    
+        $.mobile.loading( "show", {
+            text: "Lektion wird geladen",
+            textVisible: true,
+            theme: "b",
+            html: ""
+          });
+    
+    
+        $("#desc").load($(e).attr("data-next")+".html", function(){
+          $("#screen").attr("src", "./excel-screens/"+$(e).attr("data-next")+".png");
+          
+          $.mobile.loading("hide"); 
+        });       
+        
+           
     }
     
-    
+     
     
 	
 </script>
@@ -44,10 +63,10 @@
     <div class="ui-grid-a">
       <div class="ui-block-a" id="desc">
         BESCHREIBUNG
-        <p><a class="ui-btn ui-mini ui-btn-inline ui-btn-b ui-btn-icon-right ui-icon-arrow-r" href="#" data-next="1-2" onclick="nextpage(this)">Weiter</a></p>
+        <p><a class="ui-btn ui-mini ui-btn-inline ui-btn-b ui-btn-icon-right ui-icon-arrow-r" href="#" data-next="1-1" onclick="nextpage(this)">Weiter</a></p>
       </div>
       <div class="ui-block-b">
-        <img id="screen" src="./excel-screens/1-1.png" />  
+        <img id="screen" src="" />  
       </div>
     </div>
 	</div><!-- /content -->
