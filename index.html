@@ -1,193 +1,118 @@
-<!doctype html>
-<html lang="en">
-	<head>
-		<!-- Required meta tags -->
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Excel Tutorial</title>
+<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<script>
 
-		<link href="https://fonts.googleapis.com/css?family=Bebas+Neue|Julius+Sans+One&amp;display=swap" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css?family=Amatic+SC|Indie+Flower&amp;display=swap" rel="stylesheet">
-		<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-		<!-- Bootstrap CSS -->
-		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
-		<style>
-			.card {
-				margin-bottom: 3px
-			}
+		$(function() {
+			$("#panel").panel();
 
-			.video-container {
-				position: relative;
-				padding-bottom: 56.25%;
-				padding-top: 0;
-				height: 0;
-				overflow: hidden;
-			}
+      $("#screen").css({width: $( window ).width()/2});
+      
+      $( window ).resize(function() {
+        $("#screen").css({width: $( window ).width()/2});
+      });
+      
+      
+      
+      
+      
+      
+    });
+    
+    function nextpage(e){
+    
+        $.mobile.loading( "show", {
+            text: "Lektion wird geladen",
+            textVisible: true,
+            theme: "b",
+            html: ""
+          });
+    
+    
+        $(".ui-content").load($(e).attr("data-next")+".html", function(){
+          resize();
+          $.mobile.loading("hide"); 
+        });       
+        
+           
+    }
+    
+    
+    function resize(){
+      $("#screen").css({width: $( window ).width()/2});
+    }
+    
+     
+    
+	
+</script>
+</head>
 
-			.video-container iframe, .video-container object, .video-container embed {
-				position: absolute;
-				top: 0;
-				left: 0;
-				width: 100%;
-				height: 100%;
-			}
-			
-			.navbar-brand{
-				color: #fff !important
-			}
-			
-			.navbar{
-				background-color: #9d0b0b;
-				border-bottom: 1px solid #fff;
-				border-top: 0px
-			}
-			.nav-link{
-				color: #fff !important;
-				font-family: 'Amatic SC', cursive;
-				font-size: 1.8em
-			}
-			
-			h6{
-				text-align: right
-			}
-			
-			h2{
-				font-family: 'Julius Sans One', sans-serif;
-				border-bottom: 1px solid #000;
-			}
-
-		</style>
-		<title>Hello, world!</title>
-	</head>
-	<body>
-		<nav class="navbar navbar-expand-lg navbar-light">
-			<div class="container-fluid">
-				<img src="logo-notext.png" style="height: 40px" />&nbsp;
-				<a class="navbar-brand" href="#">edu</a>
-				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse" id="navbarSupportedContent">
-					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-						<li class="nav-item">
-							<a class="nav-link active" aria-current="page" href="#">Start</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="https://gss-alsfeld.de" target="_blank">IServ</a>
-						</li>
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Dropdown </a>
-							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-								<li>
-									<a class="dropdown-item" href="#">Action</a>
-								</li>
-								<li>
-									<a class="dropdown-item" href="#">Another action</a>
-								</li>
-								<li>
-									<hr class="dropdown-divider">
-								</li>
-								<li>
-									<a class="dropdown-item" href="#">Something else here</a>
-								</li>
-							</ul>
-						</li>
-					</ul>
-					<form class="d-flex">
-						<input class="form-control me-2" type="search" placeholder="#" aria-label="#">
-						<button class="btn btn-danger" type="submit">
-							Los!
-						</button>
-					</form>
-				</div>
-			</div>
-		</nav>
-		<img src="head_bio.jpg" style="width:100%"  />
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					
-					<h6>#B0001</h6>
-					<h2>Stoffnachweis II: Fette</h2>
-					<div class="row">
-						<div class="col-md-4">
-							<div class="card">
-								<div class="card-body">
-									<h5>&#9998; Arbeitsmaterialien</h5>
-									<ul class="list-group">
-										<li class="list-group-item">
-											<input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
-											Filterpapier
-										</li>
-										<li class="list-group-item">
-											<input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
-											Wasser
-										</li>
-										<li class="list-group-item">
-											<input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
-											Pipette
-										</li>
-										<li class="list-group-item">
-											<input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
-											Verschiedene Lebensmittel
-										</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-4">
-							<div class="card">
-								<div class="card-body">
-									<h5>&#8505; Arbeitsauftrag</h5>
-									<ol class="list-group list-group-numbered">
-										<li class="list-group-item">
-											Lies dir die Protokollvorlage „Nährstoffnachweis II – Fette“ aufmerksam durch
-										</li>
-										<li class="list-group-item">
-											Stelle deine eigenen Vermutungen auf
-										</li>
-										<li class="list-group-item">
-											Führe den Versuch nach Anleitung durch
-										</li>
-										<li class="list-group-item">
-											Notiere deine Beobachtungen
-										</li>
-										<li class="list-group-item">
-											Schreibe dein Ergebnis auf und überprüfe deine Vermutungen
-										</li>
-									</ol>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-4">
-							<div class="card">
-								<div class="card-body">
-									<h5>&#9997; Arbeitsblätter</h5>
-									<ul class="list-group">
-										<li class="list-group-item">
-											<a href="Nährstoffnachweis - Fette.pdf" target="_blank">Protokollvorlage - Nährstoffnachweis II - Fette</a>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-					<hr>
-					<div class="row">
-						<div class="col-md-8">
-							<div class="card">
-								<div class="card-body">
-									<div class="video-container">
-										<iframe src="https://www.youtube.com/embed/kGkCZpdJ3ac" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-
-				</div>
-
-			</div>
-		</div>
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
-	</body>
+<body>
+<!-- Start of first page: #one -->
+<div data-role="page" id="one">
+	<div data-role="header" data-theme="b">
+		<h1>EXCEL Tutorial</h1>
+    <a href="#panel" data-icon="bullets" class="ui-btn-left">Inhalt</a>
+	</div><!-- /header -->
+	<div role="main" class="ui-content">
+    <div class="ui-grid-a">
+      <div class="ui-block-a" id="desc">
+        <h1>Willkommen</h1>
+        <p>In diesem Excel-Tutorial lernst du Schritt f&uuml;r Schritt den Umgang mit dem Tabellenkalkulationsprogramm Microsorft Excel.</p>
+        <p><a class="ui-btn ui-mini ui-btn-inline ui-btn-icon-right ui-icon-arrow-r" href="#" data-next="1-1" onclick="nextpage(this)">Start</a></p>
+      </div>
+      <div class="ui-block-b">
+        <img id="screen" src="" />  
+      </div>
+    </div>
+	</div><!-- /content -->
+  <div data-role="panel" id="panel" data-theme="b">
+    <h3>Lektion 1</h3>
+    <ul data-role="listview">
+        <li><a href="#" data-next="1-1" onclick="nextpage(this)">Neue Arbeitsmappe</a></li>
+        <li><a href="#" data-next="1-2" onclick="nextpage(this)">Dokument speichern</a></li>
+        <li><a href="#" data-next="1-3" onclick="nextpage(this)">Speicherorte</a></li>
+        <li><a href="#" data-next="1-4" onclick="nextpage(this)">Zuletzt verwendet</a></li>
+        <li><a href="#" data-next="1-5" onclick="nextpage(this)">Dokumente &ouml;ffnen</a></li>
+        <li><a href="#" data-next="1-6" onclick="nextpage(this)">&Uuml;bung 1</a></li>
+    </ul>
+    <div>&nbsp;</div>
+    <h3>Lektion 2</h3>
+    <ul data-role="listview">
+        <li><a href="#" data-next="2-1" onclick="nextpage(this)">Tabellenbl&auml;tter</a></li>
+        <li><a href="#" data-next="2-2" onclick="nextpage(this)">Tabellenaufbau</a></li>
+        <li><a href="#" data-next="2-3" onclick="nextpage(this)">Men&uuml;band: <i>Start</i></a></li>
+        <li><a href="#" data-next="2-4" onclick="nextpage(this)">Men&uuml;band: <i>Seitenlayout</i></a></li>
+        <li><a href="#" data-next="2-5" onclick="nextpage(this)">Men&uuml;band: <i>Ansicht</i></a></li>
+        <li><a href="#" data-next="2-6" onclick="nextpage(this)">&Uuml;bung 2.1</a></li>
+        <li><a href="#" data-next="2-7" onclick="nextpage(this)">Rahmen</a></li>
+        <li><a href="#" data-next="2-8" onclick="nextpage(this)">Zellen verbinden</a></li>
+        <li><a href="#" data-next="2-9" onclick="nextpage(this)">&Uuml;bung 2.2</a></li>                       
+    </ul>
+    <div>&nbsp;</div>
+    <h3>Lektion 3</h3>
+    <ul data-role="listview">
+        <li><a href="#" data-next="3-1" onclick="nextpage(this)">Rechnen mit Excel</a></li>
+        <li><a href="#" data-next="3-2" onclick="nextpage(this)">Berechnungen mit Zellbezug</a></li>
+        <li><a href="#" data-next="3-3" onclick="nextpage(this)">Relativer Zellbezug</a></li>
+        <li><a href="#" data-next="3-4" onclick="nextpage(this)">Formeln</a></li>
+        <li><a href="#" data-next="3-5" onclick="nextpage(this)">Verweise</a></li>        
+    </ul>
+    <h3>Lektion 4</h3>
+    <ul data-role="listview">
+        <li><a href="#" data-next="4-1" onclick="nextpage(this)">Datenfilter</a></li>
+        <li><a href="#" data-next="4-2" onclick="nextpage(this)">&Uuml;bung 4</a></li>
+        <li><a href="#" data-next="4-3" onclick="nextpage(this)">Bedingte Formatierung</a></li>          
+    </ul>            
+  </div>
+</div>
+<!-- /panel -->
+</body>
 </html>
